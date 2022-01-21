@@ -5,6 +5,13 @@ services:
       - "${NGINX_PORT}"
 
   website:
+    deploy:
+      replicas: 6
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 2
+        delay: 15s
     build:
       context: .
       args:
