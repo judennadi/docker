@@ -8,7 +8,7 @@ const app = express();
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASS = process.env.MONGO_PASS;
 const MONGO_IP = process.env.MONGO_IP;
-const MONGO_PORT = process.env.MONGO_PORT;
+const MONGO_PORT = process.env.MONGO_PORT || 27017;
 
 const db_URL = `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_IP}:${MONGO_PORT}/devops?authSource=admin`;
 // const db_URL = "mongodb://mongo:27017/ikemdb";

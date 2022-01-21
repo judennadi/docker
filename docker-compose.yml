@@ -2,8 +2,6 @@ version: "3"
 services:
   nginx:
     image: nginx:alpine
-    ports:
-      - "3000:80"
     depends_on:
       - website
     volumes:
@@ -11,16 +9,19 @@ services:
 
   website:
     build: .
-    env_file:
-      - ./.env
+    environment:
+      - PORT=${PORT}
+      - MONGO_IP=${MONGO_IP}
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASS=${MONGO_PASS}
     depends_on:
       - mongoDB
 
   mongoDB:
     image: mongo:4.4
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=jude
-      - MONGO_INITDB_ROOT_PASSWORD=hazard
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASS}
     volumes:
       - mongo-db:/data/db
 
