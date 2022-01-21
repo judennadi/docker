@@ -9,6 +9,7 @@ services:
 
   website:
     build: .
+    image: judennadi/cloudweb:latest
     environment:
       - PORT=${PORT}
       - MONGO_IP=${MONGO_IP}
