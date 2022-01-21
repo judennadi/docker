@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
       <title>Document</title>
     </head>
     <body>
-      <h1>Hi There</h1> 
+      <h1>Docker Container</h1> 
       <br /> 
       <form>
         <input type="text" name="fullname" placeholder="name" /> 
@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
         <p><p>
         <button type="submit">Create</button> 
       </form>
-      <a href="/users"><button>Next</button></a>
+      <a href="/users"><button>See Users</button></a>
       <script>
         const form = document.querySelector("form")
         form.addEventListener("submit", async(e)=>{
